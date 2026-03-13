@@ -7,7 +7,7 @@ public class QuizGrader {
         System.out.println("   Quiz Grade Calculator");
         System.out.println("==============================");
         System.out.println("This program allows a student to:");
-        System.out.println("  - Enter up to 10 quiz scores");
+        System.out.println("  - Enter up to 10 quiz scores between 60 and 100");
         System.out.println("  - Calculates the average score");
         System.out.println("  - Displays the letter grade");
         System.out.println("  - Enter 999 at any time to quit");
@@ -26,13 +26,17 @@ public class QuizGrader {
         System.out.print("Enter a quiz grade (999 to quit): ");
         grade = scanner.nextInt(); // reads what user types
 
-        while (grade != 999 && count < 10) { // stop at 999 OR 10 grades
-            grades[count] = grade;  // store grade in array at current position
-            total += grade;         // add to running total
-            count++;                // increment count
-
+        while (grade != 999 && count < 10) {
+            // reject grades outside 60-100 range
+            if (grade < 60 || grade > 100) {
+                System.out.println("Invalid! Enter a grade between 60 and 100.");
+            } else {
+                grades[count] = grade;  // store in array
+                total += grade;          // add to running total
+                count++;                 // move to next slot
+            }
             System.out.print("Enter a quiz grade (999 to quit): ");
-            grade = scanner.nextInt();
+            grade = scanner.nextInt();   // read next input
         }
 
         System.out.println("\n=== Grades Entered ===");
