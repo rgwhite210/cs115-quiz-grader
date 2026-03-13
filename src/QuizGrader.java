@@ -11,7 +11,7 @@ public class QuizGrader {
         System.out.println("  - Calculates the average score");
         System.out.println("  - Displays the letter grade");
         System.out.println("  - Enter 999 at any time to quit");
-        System.out.println("==============================");
+        System.out.println("==============================\n");
     }
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class QuizGrader {
         int total = 0;   // running total of all grades
         int count = 0;   // how many grades entered
 
-        System.out.print("Enter a quiz grade (999 to quit): ");
+        System.out.print("Enter a quiz grade or 999 to quit: ");
         grade = scanner.nextInt(); // reads what user types
 
         while (grade != 999 && count < 10) {
@@ -35,7 +35,7 @@ public class QuizGrader {
                 total += grade;          // add to running total
                 count++;                 // move to next slot
             }
-            System.out.print("Enter a quiz grade (999 to quit): ");
+            System.out.print("Enter a quiz grade or 999 to quit: ");
             grade = scanner.nextInt();   // read next input
         }
 
@@ -48,7 +48,7 @@ public class QuizGrader {
         double average = (double) total / count;
         System.out.printf("Average grade: %.2f%n", average);
         String letterGrade;
-        // Retrieves the letter grade based on the average
+        // retrieves the letter grade based on the average
         if (average >= 90) {
             letterGrade = "A";
         } else if (average >= 80) {
